@@ -1,0 +1,5 @@
+/.idea
+.node-version
+/node_modules
+/build
+build*

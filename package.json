@@ -12,6 +12,7 @@
     "classnames": "^2.2.5",
     "css-loader": "^0.28.4",
     "google-protobuf": "^3.3.0",
+    "googleapis": "^22.2.0",
     "grpc-web-client": "^0.3.0",
     "immutable": "^3.8.1",
     "node-sass": "^4.5.3",

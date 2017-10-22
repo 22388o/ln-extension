@@ -4,8 +4,8 @@ const initialState = Map({
     page: 'main',
     address: null,
     node: {
-        host: 'http://ec2-52-3-224-49.compute-1.amazonaws.com',
-        port: '9001'
+        host: 'http://46.101.172.135',
+        port: '19999'
     }
 });
 

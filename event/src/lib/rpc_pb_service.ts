@@ -1,305 +1,171 @@
-// package: lnrpc
+// package: rpc
 // file: rpc.proto
 
 import * as rpc_pb from "./rpc_pb";
-export class Lightning {
-  static serviceName = "lnrpc.Lightning";
+// import * as google_api_annotations_pb from "./google/api/annotations_pb";
+
+export class Exchange {
+  static serviceName = "rpc.Exchange";
 }
-export namespace Lightning {
-  export class WalletBalance {
-    static readonly methodName = "WalletBalance";
-    static readonly service = Lightning;
+export namespace Exchange {
+  export class BalanceQuery {
+    static readonly methodName = "BalanceQuery";
+    static readonly service = Exchange;
     static readonly requestStream = false;
     static readonly responseStream = false;
-    static readonly requestType = rpc_pb.WalletBalanceRequest;
-    static readonly responseType = rpc_pb.WalletBalanceResponse;
+    static readonly requestType = rpc_pb.BalanceQueryRequest;
+    static readonly responseType = rpc_pb.BalanceQueryResponse;
   }
-  export class ChannelBalance {
-    static readonly methodName = "ChannelBalance";
-    static readonly service = Lightning;
+  export class BalanceWithdrawal {
+    static readonly methodName = "BalanceWithdrawal";
+    static readonly service = Exchange;
     static readonly requestStream = false;
     static readonly responseStream = false;
-    static readonly requestType = rpc_pb.ChannelBalanceRequest;
-    static readonly responseType = rpc_pb.ChannelBalanceResponse;
+    static readonly requestType = rpc_pb.BalanceWithdrawalRequest;
+    static readonly responseType = rpc_pb.BalanceWithdrawalResponse;
   }
-  export class GetTransactions {
-    static readonly methodName = "GetTransactions";
-    static readonly service = Lightning;
+  export class BalanceHistory {
+    static readonly methodName = "BalanceHistory";
+    static readonly service = Exchange;
     static readonly requestStream = false;
     static readonly responseStream = false;
-    static readonly requestType = rpc_pb.GetTransactionsRequest;
-    static readonly responseType = rpc_pb.TransactionDetails;
+    static readonly requestType = rpc_pb.BalanceHistoryRequest;
+    static readonly responseType = rpc_pb.BalanceHistoryResponse;
   }
-  export class SendCoins {
-    static readonly methodName = "SendCoins";
-    static readonly service = Lightning;
+  export class OrderPutLimit {
+    static readonly methodName = "OrderPutLimit";
+    static readonly service = Exchange;
     static readonly requestStream = false;
     static readonly responseStream = false;
-    static readonly requestType = rpc_pb.SendCoinsRequest;
-    static readonly responseType = rpc_pb.SendCoinsResponse;
+    static readonly requestType = rpc_pb.OrderPutLimitRequest;
+    static readonly responseType = rpc_pb.OrderDetailedInfo;
   }
-  export class SubscribeTransactions {
-    static readonly methodName = "SubscribeTransactions";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = true;
-    static readonly requestType = rpc_pb.GetTransactionsRequest;
-    static readonly responseType = rpc_pb.Transaction;
-  }
-  export class SendMany {
-    static readonly methodName = "SendMany";
-    static readonly service = Lightning;
+  export class OrderPutMarket {
+    static readonly methodName = "OrderPutMarket";
+    static readonly service = Exchange;
     static readonly requestStream = false;
     static readonly responseStream = false;
-    static readonly requestType = rpc_pb.SendManyRequest;
-    static readonly responseType = rpc_pb.SendManyResponse;
+    static readonly requestType = rpc_pb.OrderPutMarketRequest;
+    static readonly responseType = rpc_pb.OrderDetailedInfo;
   }
-  export class NewAddress {
-    static readonly methodName = "NewAddress";
-    static readonly service = Lightning;
+  export class OrderCancel {
+    static readonly methodName = "OrderCancel";
+    static readonly service = Exchange;
     static readonly requestStream = false;
     static readonly responseStream = false;
-    static readonly requestType = rpc_pb.NewAddressRequest;
-    static readonly responseType = rpc_pb.NewAddressResponse;
+    static readonly requestType = rpc_pb.OrderCancelRequest;
+    static readonly responseType = rpc_pb.OrderDetailedInfo;
   }
-  export class NewWitnessAddress {
-    static readonly methodName = "NewWitnessAddress";
-    static readonly service = Lightning;
+  export class OrderBook {
+    static readonly methodName = "OrderBook";
+    static readonly service = Exchange;
     static readonly requestStream = false;
     static readonly responseStream = false;
-    static readonly requestType = rpc_pb.NewWitnessAddressRequest;
-    static readonly responseType = rpc_pb.NewAddressResponse;
+    static readonly requestType = rpc_pb.OrderBookRequest;
+    static readonly responseType = rpc_pb.OrderBookResponse;
   }
-  export class SignMessage {
-    static readonly methodName = "SignMessage";
-    static readonly service = Lightning;
+  export class OrderDepth {
+    static readonly methodName = "OrderDepth";
+    static readonly service = Exchange;
     static readonly requestStream = false;
     static readonly responseStream = false;
-    static readonly requestType = rpc_pb.SignMessageRequest;
-    static readonly responseType = rpc_pb.SignMessageResponse;
+    static readonly requestType = rpc_pb.OrderDepthRequest;
+    static readonly responseType = rpc_pb.OrderDepthResponse;
   }
-  export class VerifyMessage {
-    static readonly methodName = "VerifyMessage";
-    static readonly service = Lightning;
+  export class OrderPending {
+    static readonly methodName = "OrderPending";
+    static readonly service = Exchange;
     static readonly requestStream = false;
     static readonly responseStream = false;
-    static readonly requestType = rpc_pb.VerifyMessageRequest;
-    static readonly responseType = rpc_pb.VerifyMessageResponse;
+    static readonly requestType = rpc_pb.OrderPendingRequest;
+    static readonly responseType = rpc_pb.OrderPendingResponse;
   }
-  export class ConnectPeer {
-    static readonly methodName = "ConnectPeer";
-    static readonly service = Lightning;
+  export class OrderDeals {
+    static readonly methodName = "OrderDeals";
+    static readonly service = Exchange;
     static readonly requestStream = false;
     static readonly responseStream = false;
-    static readonly requestType = rpc_pb.ConnectPeerRequest;
-    static readonly responseType = rpc_pb.ConnectPeerResponse;
+    static readonly requestType = rpc_pb.OrderDealsRequest;
+    static readonly responseType = rpc_pb.OrderDealsResponse;
   }
-  export class DisconnectPeer {
-    static readonly methodName = "DisconnectPeer";
-    static readonly service = Lightning;
+  export class OrderPendingDetails {
+    static readonly methodName = "OrderPendingDetails";
+    static readonly service = Exchange;
     static readonly requestStream = false;
     static readonly responseStream = false;
-    static readonly requestType = rpc_pb.DisconnectPeerRequest;
-    static readonly responseType = rpc_pb.DisconnectPeerResponse;
+    static readonly requestType = rpc_pb.OrderPendingDetailRequest;
+    static readonly responseType = rpc_pb.OrderDetailedInfo;
   }
-  export class ListPeers {
-    static readonly methodName = "ListPeers";
-    static readonly service = Lightning;
+  export class OrderFinished {
+    static readonly methodName = "OrderFinished";
+    static readonly service = Exchange;
     static readonly requestStream = false;
     static readonly responseStream = false;
-    static readonly requestType = rpc_pb.ListPeersRequest;
-    static readonly responseType = rpc_pb.ListPeersResponse;
+    static readonly requestType = rpc_pb.OrderFinishedRequest;
+    static readonly responseType = rpc_pb.OrderFinishedResponse;
   }
-  export class GetInfo {
-    static readonly methodName = "GetInfo";
-    static readonly service = Lightning;
+  export class OrderFinishedDetail {
+    static readonly methodName = "OrderFinishedDetail";
+    static readonly service = Exchange;
     static readonly requestStream = false;
     static readonly responseStream = false;
-    static readonly requestType = rpc_pb.GetInfoRequest;
-    static readonly responseType = rpc_pb.GetInfoResponse;
+    static readonly requestType = rpc_pb.OrderFinishedDetailRequest;
+    static readonly responseType = rpc_pb.OrderDetailedInfo;
   }
-  export class PendingChannels {
-    static readonly methodName = "PendingChannels";
-    static readonly service = Lightning;
+  export class MarketLast {
+    static readonly methodName = "MarketLast";
+    static readonly service = Exchange;
     static readonly requestStream = false;
     static readonly responseStream = false;
-    static readonly requestType = rpc_pb.PendingChannelRequest;
-    static readonly responseType = rpc_pb.PendingChannelResponse;
+    static readonly requestType = rpc_pb.MarketLastRequest;
+    static readonly responseType = rpc_pb.MarketLastResponse;
   }
-  export class ListChannels {
-    static readonly methodName = "ListChannels";
-    static readonly service = Lightning;
+  export class MarketDeals {
+    static readonly methodName = "MarketDeals";
+    static readonly service = Exchange;
     static readonly requestStream = false;
     static readonly responseStream = false;
-    static readonly requestType = rpc_pb.ListChannelsRequest;
-    static readonly responseType = rpc_pb.ListChannelsResponse;
+    static readonly requestType = rpc_pb.MarketDealsRequest;
+    static readonly responseType = rpc_pb.MarketDealsResponse;
   }
-  export class OpenChannelSync {
-    static readonly methodName = "OpenChannelSync";
-    static readonly service = Lightning;
+  export class MarketUserDeals {
+    static readonly methodName = "MarketUserDeals";
+    static readonly service = Exchange;
     static readonly requestStream = false;
     static readonly responseStream = false;
-    static readonly requestType = rpc_pb.OpenChannelRequest;
-    static readonly responseType = rpc_pb.ChannelPoint;
+    static readonly requestType = rpc_pb.MarketUserDealsRequest;
+    static readonly responseType = rpc_pb.MarketUserDealsResponse;
   }
-  export class OpenChannel {
-    static readonly methodName = "OpenChannel";
-    static readonly service = Lightning;
+  export class MarketKline {
+    static readonly methodName = "MarketKline";
+    static readonly service = Exchange;
     static readonly requestStream = false;
-    static readonly responseStream = true;
-    static readonly requestType = rpc_pb.OpenChannelRequest;
-    static readonly responseType = rpc_pb.OpenStatusUpdate;
+    static readonly responseStream = false;
+    static readonly requestType = rpc_pb.MarketKLineRequest;
+    static readonly responseType = rpc_pb.MarketKLineResponse;
   }
-  export class CloseChannel {
-    static readonly methodName = "CloseChannel";
-    static readonly service = Lightning;
+  export class MarketStatus {
+    static readonly methodName = "MarketStatus";
+    static readonly service = Exchange;
     static readonly requestStream = false;
-    static readonly responseStream = true;
-    static readonly requestType = rpc_pb.CloseChannelRequest;
-    static readonly responseType = rpc_pb.CloseStatusUpdate;
+    static readonly responseStream = false;
+    static readonly requestType = rpc_pb.MarketStatusRequest;
+    static readonly responseType = rpc_pb.MarketStatusResponse;
   }
-  export class SendPayment {
-    static readonly methodName = "SendPayment";
-    static readonly service = Lightning;
+  export class MarketStatusToday {
+    static readonly methodName = "MarketStatusToday";
+    static readonly service = Exchange;
+    static readonly requestStream = false;
+    static readonly responseStream = false;
+    static readonly requestType = rpc_pb.MarketStatusTodayRequest;
+    static readonly responseType = rpc_pb.MarketStatusTodayResponse;
+  }
+  export class SubscribeUpdates {
+    static readonly methodName = "SubscribeUpdates";
+    static readonly service = Exchange;
     static readonly requestStream = true;
     static readonly responseStream = true;
-    static readonly requestType = rpc_pb.SendRequest;
-    static readonly responseType = rpc_pb.SendResponse;
-  }
-  export class SendPaymentSync {
-    static readonly methodName = "SendPaymentSync";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = false;
-    static readonly requestType = rpc_pb.SendRequest;
-    static readonly responseType = rpc_pb.SendResponse;
-  }
-  export class AddInvoice {
-    static readonly methodName = "AddInvoice";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = false;
-    static readonly requestType = rpc_pb.Invoice;
-    static readonly responseType = rpc_pb.AddInvoiceResponse;
-  }
-  export class ListInvoices {
-    static readonly methodName = "ListInvoices";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = false;
-    static readonly requestType = rpc_pb.ListInvoiceRequest;
-    static readonly responseType = rpc_pb.ListInvoiceResponse;
-  }
-  export class LookupInvoice {
-    static readonly methodName = "LookupInvoice";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = false;
-    static readonly requestType = rpc_pb.PaymentHash;
-    static readonly responseType = rpc_pb.Invoice;
-  }
-  export class SubscribeInvoices {
-    static readonly methodName = "SubscribeInvoices";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = true;
-    static readonly requestType = rpc_pb.InvoiceSubscription;
-    static readonly responseType = rpc_pb.Invoice;
-  }
-  export class DecodePayReq {
-    static readonly methodName = "DecodePayReq";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = false;
-    static readonly requestType = rpc_pb.PayReqString;
-    static readonly responseType = rpc_pb.PayReq;
-  }
-  export class ListPayments {
-    static readonly methodName = "ListPayments";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = false;
-    static readonly requestType = rpc_pb.ListPaymentsRequest;
-    static readonly responseType = rpc_pb.ListPaymentsResponse;
-  }
-  export class DeleteAllPayments {
-    static readonly methodName = "DeleteAllPayments";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = false;
-    static readonly requestType = rpc_pb.DeleteAllPaymentsRequest;
-    static readonly responseType = rpc_pb.DeleteAllPaymentsResponse;
-  }
-  export class DescribeGraph {
-    static readonly methodName = "DescribeGraph";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = false;
-    static readonly requestType = rpc_pb.ChannelGraphRequest;
-    static readonly responseType = rpc_pb.ChannelGraph;
-  }
-  export class GetChanInfo {
-    static readonly methodName = "GetChanInfo";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = false;
-    static readonly requestType = rpc_pb.ChanInfoRequest;
-    static readonly responseType = rpc_pb.ChannelEdge;
-  }
-  export class GetNodeInfo {
-    static readonly methodName = "GetNodeInfo";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = false;
-    static readonly requestType = rpc_pb.NodeInfoRequest;
-    static readonly responseType = rpc_pb.NodeInfo;
-  }
-  export class QueryRoutes {
-    static readonly methodName = "QueryRoutes";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = false;
-    static readonly requestType = rpc_pb.QueryRoutesRequest;
-    static readonly responseType = rpc_pb.QueryRoutesResponse;
-  }
-  export class GetNetworkInfo {
-    static readonly methodName = "GetNetworkInfo";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = false;
-    static readonly requestType = rpc_pb.NetworkInfoRequest;
-    static readonly responseType = rpc_pb.NetworkInfo;
-  }
-  export class StopDaemon {
-    static readonly methodName = "StopDaemon";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = false;
-    static readonly requestType = rpc_pb.StopRequest;
-    static readonly responseType = rpc_pb.StopResponse;
-  }
-  export class SubscribeChannelGraph {
-    static readonly methodName = "SubscribeChannelGraph";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = true;
-    static readonly requestType = rpc_pb.GraphTopologySubscription;
-    static readonly responseType = rpc_pb.GraphTopologyUpdate;
-  }
-  export class SetAlias {
-    static readonly methodName = "SetAlias";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = false;
-    static readonly requestType = rpc_pb.SetAliasRequest;
-    static readonly responseType = rpc_pb.SetAliasResponse;
-  }
-  export class DebugLevel {
-    static readonly methodName = "DebugLevel";
-    static readonly service = Lightning;
-    static readonly requestStream = false;
-    static readonly responseStream = false;
-    static readonly requestType = rpc_pb.DebugLevelRequest;
-    static readonly responseType = rpc_pb.DebugLevelResponse;
+    static readonly requestType = rpc_pb.Command;
+    static readonly responseType = rpc_pb.Update;
   }
 }
